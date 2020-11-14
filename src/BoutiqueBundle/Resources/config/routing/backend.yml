@@ -1,0 +1,109 @@
+backend_index:
+  path:     /
+  defaults: { _controller: BoutiqueBundle:Default:admin }
+  methods:  GET
+
+bk_commandes:
+  path: /commandes
+  defaults: { _controller: BoutiqueBundle:Admin:commandes }
+  methods:  GET
+
+bk_categories:
+  path: /categories
+  defaults: { _controller: BoutiqueBundle:Admin:categories }
+  methods:  [GET, POST]
+
+ajout_categorie:
+  path: /categories/ajout
+  defaults: { _controller: BoutiqueBundle:Categories:Ajoutcategorie }
+  methods:  [GET, POST]
+
+categorie_delete:
+  path: /categories/delete/{id}
+  defaults: { _controller: BoutiqueBundle:Categories:deletecategorie }
+  methods:  [GET, POST]
+
+categorie_edit:
+  path: /categories/edit/{id}
+  defaults: { _controller: BoutiqueBundle:Categories:editcategorie }
+  methods:  [GET, POST]
+
+bk_produits:
+  path: /produits
+  defaults: { _controller: BoutiqueBundle:Admin:produits }
+  methods:  GET
+
+produit_ajout:
+  path: /produits/ajout
+  defaults: { _controller: BoutiqueBundle:Produits:Ajoutproduit }
+  methods:  [GET, POST]
+
+produit_remise:
+  path: /produits/remise
+  defaults: { _controller: BoutiqueBundle:Produits:Remiseproduit }
+  methods:  [GET, POST]
+
+produit_delete:
+  path: /produits/delete/{id}
+  defaults: { _controller: BoutiqueBundle:Produits:deleteproduit }
+  methods:  [GET, POST]
+produit_edit:
+  path: /produits/edit/{id}
+  defaults: { _controller: BoutiqueBundle:Produits:editproduit }
+  methods:  [GET, POST]
+
+produit_editcouleur:
+  path: /produits/editcouleurs/{id}
+  defaults: { _controller: BoutiqueBundle:Produits:editcouleurproduit }
+  methods:  [GET, POST]
+
+bk_clients:
+  path: /clients
+  defaults: { _controller: BoutiqueBundle:Admin:clients }
+  methods:  GET
+
+bk_marques:
+  path: /marques
+  defaults: { _controller: BoutiqueBundle:Admin:marques }
+  methods:  [GET, POST]
+
+ajout_marque:
+  path: /marques/ajout
+  defaults: { _controller: BoutiqueBundle:Marques:Ajoutmarque }
+  methods:  [GET, POST]
+
+marque_delete:
+  path: /marques/delete/{id}
+  defaults: { _controller: BoutiqueBundle:Marques:deletemarque }
+  methods:  [GET, POST]
+
+marque_edit:
+  path: /marques/edit/{id}
+  defaults: { _controller: BoutiqueBundle:Marques:editmarque }
+  methods:  [GET, POST]
+
+profile_admin:
+  path: /profile
+  defaults: { _controller: BoutiqueBundle:Admin:ajoutprofile }
+  methods:  [GET, POST]
+
+cmds_client:
+  path: /commandes/{id}
+  defaults: { _controller: BoutiqueBundle:GestionClient:commandesClient }
+  methods:  [GET, POST]
+
+details_cmd:
+  path: /commande/{cltid}/{id}
+  defaults: { _controller: BoutiqueBundle:GestionClient:DetailCmd }
+  methods:  [GET, POST]
+
+valider_cmd:
+  path: /verifier_commande/{cltid}/{id}
+  defaults: { _controller: BoutiqueBundle:GestionClient:validerCmd }
+  methods:  [GET, POST]
+
+
+
+
+
+

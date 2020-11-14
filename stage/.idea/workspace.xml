@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b0f257fa-7d13-41ec-8d85-b7985f4bbf12" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="fd3b0fa5-033a-4603-9f38-1b0ec1b841f5" />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1ekCLPA51DwnmdBDDSTzWCpsP7Q" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\symfprojects\stage\src\BoutiqueBundle" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web\images2\icons" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web\images" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web\uploads\images" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web\theme-assets\images\portrait" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web\images2\icons" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\web" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\src\UserBundle" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\src\BoutiqueBundle\Resources\views" />
+      <recent name="C:\xampp\htdocs\symfprojects\stage\src\UserBundle\Repository" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="php composer.phar dump-autoload" />
+      <command value="php symfony console /bin server:run" />
+      <command value="c dump-autoload" />
+      <command value="s doctrine:database:create" />
+      <command value="s doctrine:schema:drop --force" />
+      <command value="s doctrine:schema:create" />
+      <command value="s doctrine:generate:form BoutiqueBundle:Boutique" />
+      <command value="composer require friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="c friendsofsymfony/user-bundle &quot;~2.0&quot;" />
+      <command value="php composer.phar require friendsofsymfony/user-bundle" />
+      <command value="php composer.phar update" />
+      <command value="s generate:bundle" />
+      <command value="s doctrine:mapping:import --force UserBundle annotation" />
+      <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:generate:form" />
+      <command value="s doctrine:generate:form Categorie" />
+      <command value="s doctrine:generate:form BoutiqueBundle:Categorie" />
+      <command value="s doctrine:generate:entity BoutiqueBundle:Produit_Boutique" />
+      <command value="s doctrine:generate:entity BoutiqueBundle:Marque" />
+      <command value="s doctrine:generate:form BoutiqueBundle:Produits" />
+      <command value="s doctrine:generate:form BoutiqueBundle:Produit" />
+      <command value="s doctrine:generate:form BoutiqueBundle:Marque" />
+      <command value="s generate:controller" />
+      <command value="s doctrine:schema:update --force" />
+      <command value="s server:run" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0f257fa-7d13-41ec-8d85-b7985f4bbf12" name="Default Changelist" comment="" />
+      <created>1594856146985</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594856146985</updated>
+      <workItem from="1594856148219" duration="688000" />
+      <workItem from="1594890398690" duration="14031000" />
+      <workItem from="1594969265433" duration="14949000" />
+      <workItem from="1594987623008" duration="83000" />
+      <workItem from="1594987707353" duration="63000" />
+      <workItem from="1594987771506" duration="231000" />
+      <workItem from="1594988017743" duration="349000" />
+      <workItem from="1594988371392" duration="5955000" />
+      <workItem from="1594997727105" duration="753000" />
+      <workItem from="1594998845559" duration="846000" />
+      <workItem from="1594999879103" duration="14000" />
+      <workItem from="1594999942923" duration="1022000" />
+      <workItem from="1595000972154" duration="221000" />
+      <workItem from="1595001195875" duration="1007000" />
+      <workItem from="1595002210303" duration="8395000" />
+      <workItem from="1595062402747" duration="11212000" />
+      <workItem from="1595093746709" duration="9333000" />
+      <workItem from="1595153583608" duration="14720000" />
+      <workItem from="1595227198265" duration="20959000" />
+      <workItem from="1595313800637" duration="21196000" />
+      <workItem from="1595339778954" duration="133000" />
+      <workItem from="1595400657685" duration="20792000" />
+      <workItem from="1595486803364" duration="22886000" />
+      <workItem from="1595574224053" duration="62000" />
+      <workItem from="1595574318218" duration="2640000" />
+      <workItem from="1595581346005" duration="20016000" />
+      <workItem from="1595616326419" duration="9666000" />
+      <workItem from="1595677866933" duration="5740000" />
+      <workItem from="1595782103566" duration="6011000" />
+      <workItem from="1595835008187" duration="1502000" />
+      <workItem from="1595840312355" duration="596000" />
+      <workItem from="1595843004484" duration="12003000" />
+      <workItem from="1595918521336" duration="7817000" />
+      <workItem from="1595926589698" duration="722000" />
+      <workItem from="1595933438348" duration="9086000" />
+      <workItem from="1595948108670" duration="3255000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

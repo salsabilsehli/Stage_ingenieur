@@ -1,0 +1,72 @@
+{% extends 'compte_clt.html.twig' %}
+
+{%  block dynamique %}
+
+
+    <div class="container main-container headerOffset">
+        <div class="row">
+            <div class="breadcrumbDiv col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}">Accueil</a></li>
+                    <li><a href="{{ path('compte_clt',{'nomB':username,'cltname':client.username}) }}">Mon Compte</a></li>
+                    <li class="active"> Mes commandes</li>
+                </ul>
+            </div>
+        </div>
+        <h1 class="section-title-inner"><span><i class="fa fa-list-alt"></i> Mes commandes </span></h1>
+    <div class="table" style="alignment: center">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <table data-vertable="ver1">
+                    <thead>
+                    <tr class="row100 head">
+                        <th class="column100 column1" data-column="column2">ID Commande</th>
+                        <th class="column100 column3" data-column="column3">Prix</th>
+                        <th class="column100 column4" data-column="column4">Date</th>
+                        <th class="column100 column4" data-column="column5">Livraison</th>
+                        <th class="column100 column5" data-column="column6">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cmd in commandes %}
+                    <tr class="row100">
+                        <td class="column100 column1" data-column="column2"><a href="{{ path('details_commande',{'nomB':username,'cltname':client.username,'id':cmd.id}) }}"> #CMD_{{ cmd.id }}</a></td>
+                        <td class="column100 column3" data-column="column3">{{ cmd.prix |number_format(3)}} Dt</td>
+                        <td class="column100 column4" data-column="column4">{{ cmd.Date|date("m/d/Y") }}</td>
+                        {% if cmd.livgrat == 0 %}
+                        <td class="column100 column3" data-column="column5"><span class="label label-danger">Non gratuite</span></td>
+                        {% else %}
+                            <td class="column100 column3" data-column="column5"><span class="label label-success">Gratuite</span></td>
+                            {% endif %}
+                            {% if  cmd.nnvalide == 1%}
+                        <td class="column100 column5" data-column="column6"><span class="label label-default">en attente</span></td>
+                        {% else %}
+                            <td class="column100 column5" data-column="column6"><span class="label label-success">validée</span></td>
+                            {% endif %}
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <!--/row-->
+
+        <div style="clear:both"></div>
+    </div>
+
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="{{ asset('tvendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('tvendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ asset('tvendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('tvendor/select2/select2.min.js') }}"></script>
+    <!--===============================================================================================-->
+    <script src="{{ asset('tjs/main.js') }}"></script>
+{% endblock %}

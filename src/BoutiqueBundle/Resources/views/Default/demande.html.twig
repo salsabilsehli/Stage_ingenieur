@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Inscription</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        input[type="submit"]:disabled {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="createForm"style=" margin-top:40px;margin-left:250px;width:60%">
+    <!-- Default box -->
+    <div class="card" >
+        <div class="card-header" >
+            <h3 class="card-title">Inscription </h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="card-body">
+
+            {{ form_start(form,{'attr':{'novalidate': 'novalidate'}}) }}
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+            {{ form_widget(form) }}
+
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="{{ asset ('js/bootstrapbw.min.css')}}"></script>
+</body>
+</html>

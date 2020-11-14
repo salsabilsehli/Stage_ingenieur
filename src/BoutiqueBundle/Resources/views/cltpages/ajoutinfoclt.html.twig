@@ -1,0 +1,54 @@
+{% extends 'compte_clt.html.twig' %}
+
+{%  block dynamique %}
+    <br><br><br><br><br><br>
+    <div class="row match-height" >
+    <div class="col-lg-6 " style="width:400px; margin:0 auto;margin-left: 500px" >
+    <div class="card" >
+    <div class="card-block">
+    <div class="card-body">
+<fieldset class="form-group" >
+    <!-- cat form widget -->
+    {{ form_start(form) }}
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    <div class="input-group" >
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-1x"> Nom complet</i></span>
+        </div>
+    {{ form_widget(form.nomDeFamille) }}
+    </div>
+<br>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-phone"> Numéro de telephone</i></span>
+        </div>
+        {{ form_widget(form.num) }}
+    </div>
+<br>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-calendar-alt"><strong> Date de naissance</strong></i></span>
+        </div>
+        {{ form_widget(form.dateNaissance) }}
+    </div>
+    <br>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="far fa-address-book"><strong> Adresse</strong></i></span>
+        </div>
+        {{ form_widget(form.Adresse) }}
+    </div>
+    <button type="submit" class="btn btn-success" style="margin-left:72%;margin-top: 10px">Ok</button>
+
+    {{ form_end(form) }}
+</fieldset>
+        <a href="{{ path('compte_clt',{'nomB':username,'cltname':client.username}) }}" type="button" class="btn btn-danger" style="margin-left:0%;width: 25%">Annuler</a>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

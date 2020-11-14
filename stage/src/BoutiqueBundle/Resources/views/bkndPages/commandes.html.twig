@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block active %}
+    <li class=" nav-item"><a href="{{path('backend_index',{'username':username})}}"><i class="ft-home"></i><span class="menu-title" data-i18n="">Acceuil</span></a>
+    </li>
+    <li class=" nav-item" ><a href="{{ path('bk_categories',{'username':username}) }}"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Catégories</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_produits',{'username':username}) }}"><i class="ft-box"></i><span class="menu-title" data-i18n="">Produits</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_marques',{'username':username}) }}"><i class="la la-tags"></i><span class="menu-title" data-i18n="">Marques</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_clients',{'username':username}) }}"><i class="la la-female"></i><span class="menu-title" data-i18n="">Clients</span></a>
+    </li>
+    <li class="active"><a href="{{ path('bk_commandes',{'username':username}) }}"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Commandes</span></a>
+    </li>
+{% endblock %}
+{% block dynamique %}
+{% endblock %}

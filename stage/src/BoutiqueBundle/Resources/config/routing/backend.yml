@@ -1,0 +1,94 @@
+backend_index:
+  path:     /
+  defaults: { _controller: BoutiqueBundle:Default:admin }
+  methods:  GET
+
+bk_commandes:
+  path: /commandes
+  defaults: { _controller: BoutiqueBundle:Admin:commandes }
+  methods:  GET
+
+bk_categories:
+  path: /categories
+  defaults: { _controller: BoutiqueBundle:Admin:categories }
+  methods:  [GET, POST]
+
+ajout_categorie:
+  path: /categories/ajout
+  defaults: { _controller: BoutiqueBundle:Categories:Ajoutcategorie }
+  methods:  [GET, POST]
+
+categorie_delete:
+  path: /categories/delete/{nomCategorie}
+  defaults: { _controller: BoutiqueBundle:Categories:deletecategorie }
+  methods:  [GET, POST]
+categorie_edit:
+  path: /categories/edit/{nomCategorie}
+  defaults: { _controller: BoutiqueBundle:Categories:editcategorie }
+  methods:  [GET, POST]
+
+bk_produits:
+  path: /produits
+  defaults: { _controller: BoutiqueBundle:Admin:produits }
+  methods:  GET
+
+produit_ajout:
+  path: /produits/ajout
+  defaults: { _controller: BoutiqueBundle:Produits:Ajoutproduit }
+  methods:  [GET, POST]
+
+produit_delete:
+  path: /produits/delete/{nomProd}
+  defaults: { _controller: BoutiqueBundle:Produits:deleteproduit }
+  methods:  [GET, POST]
+produit_edit:
+  path: /produits/edit/{nomProd}
+  defaults: { _controller: BoutiqueBundle:Produits:editproduit }
+  methods:  [GET, POST]
+
+bk_clients:
+  path: /clients
+  defaults: { _controller: BoutiqueBundle:Admin:clients }
+  methods:  GET
+
+bk_marques:
+  path: /marques
+  defaults: { _controller: BoutiqueBundle:Admin:marques }
+  methods:  [GET, POST]
+
+ajout_marque:
+  path: /marques/ajout
+  defaults: { _controller: BoutiqueBundle:Marques:Ajoutmarque }
+  methods:  [GET, POST]
+
+marque_delete:
+  path: /marques/delete/{nomMarque}
+  defaults: { _controller: BoutiqueBundle:Marques:deletemarque }
+  methods:  [GET, POST]
+marque_edit:
+  path: /marques/edit/{nomMarque}
+  defaults: { _controller: BoutiqueBundle:Marques:editmarque }
+  methods:  [GET, POST]
+
+profile_admin:
+  path: /profile
+  defaults: { _controller: BoutiqueBundle:Admin:edit_profile }
+  methods:  GET
+
+edit_admin:
+  path: /profileadmin
+  defaults: { _controller: BoutiqueBundle:Admin:edit_admin }
+  methods:  [GET, POST]
+
+
+
+
+
+
+
+
+
+
+
+
+

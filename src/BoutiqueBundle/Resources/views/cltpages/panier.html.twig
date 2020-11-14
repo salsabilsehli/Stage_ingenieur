@@ -1,0 +1,204 @@
+{% extends 'compte_clt.html.twig' %}
+
+{%  block dynamique %}
+
+    <div class="container main-container headerOffset">
+        <div class="row">
+            <div class="breadcrumbDiv col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}">Accueil</a></li>
+                    <li class="active">PANIER</li>
+                </ul>
+            </div>
+        </div>
+        <!--/.row-->
+
+
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-7 col-xs-6 col-xxs-12 text-center-xs">
+                <h1 class="section-title-inner"><span><i
+                                class="glyphicon glyphicon-shopping-cart"></i> Panier</span></h1>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar col-xs-6 col-xxs-12 text-center-xs">
+                <h4 class="caps"><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}"><i class="fa fa-chevron-left"></i> Retour au achats </a></h4>
+            </div>
+        </div>
+        <!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-7">
+                <div class="row userInfo">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="cartContent w100">
+                            <table class="cartTable table-responsive" style="width:100%">
+                                <tbody>
+
+                                <tr class="CartProduct cartTableHeader">
+                                    <td style="width:15%"> Produit</td>
+                                    <td style="width:0%">Détails</td>
+                                    <td style="width:40%">Prix</td>
+                                    <td style="width:10%" class="delete">&nbsp;</td>
+                                    <td style="width:10%">QNT</td>
+                                    <td style="width:10%">Remise</td>
+                                    <td style="width:15%">Total</td>
+                                </tr>
+
+                                {% for array in panier %}
+
+
+                                <tr class="CartProduct">
+                                    <td class="CartProductThumb">
+                                        <div><a href="{{ path('product_details',{'nomB':username,'cltname':client.username,'id':array.id}) }}"><img src="{{ asset('/images/' ~ array.image) }}" alt="img"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="CartDescription">
+                                            <h4><a href="{{ path('product_details',{'nomB':username,'cltname':client.username,'id':array.id}) }}">{{ array.nomProd }} </a></h4>
+                                            {% if array.taille != NULL %}
+                                                <span class="size"> taille : {{ array.taille }} </span>
+                                            {% endif %}
+                                            {% if array.couleur != NULL %}
+                                                <div class="size"> couleur :
+
+
+
+                                                    <FONT COLOR="{{ array.couleur }}" >
+                                                        <div style="width: 20px;border: 1px black solid;
+                                                                height: 20px;
+                                                                border-radius: 20px ;
+                                                                background: {{ array.couleur }};"></div>
+                                                    </FONT>
+
+
+
+
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </td>
+                                    <td class="price">{{ array.prix }} Dt</td>
+                                    <td class="delete"><a title="Delete" href="{{ path('delete_from_cart',{'id':array.id,'nomB':username,'cltname':client.username}) }}"> <i
+                                                    class="glyphicon glyphicon-trash fa-2x"></i></a></td>
+                                    <td class="price">{{ array.qte }}</td>
+                                    <td class="price">{{ array.remise }} %</td>
+                                    {% if array.remise!=0 %}
+                                        <td class="price"> {{ (array.qte * array.prix * (100 - array.remise ) / 100) |number_format(3)}} Dt</td>
+                                    {% else %}
+                                        <td class="price">{{ (array.qte * array.prix) |number_format(3)}} Dt</td>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--cartContent-->
+
+                        <div class="cartFooter w100">
+                            <div class="box-footer">
+                                <div class="pull-left"><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}" class="btn btn-default"> <i
+                                                class="fa fa-arrow-left"></i> &nbsp; Continuer vos achats </a></div>
+                                <div class="pull-right">
+                                    <a href="{{ path('maj_panier',{'nomB':username,'cltname':client.username}) }}" class="btn btn-warning"> <i
+                                                class="fa fa-undo"></i> &nbsp; Mise à jour le panier </a></div>
+
+                            </div>
+                        </div>
+                        <!--/ cartFooter -->
+
+                    </div>
+                </div>
+                <!--/row end-->
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-5 rightSidebar">
+                <div class="contentBox">
+                    <div class="w100 costDetails">
+                        <div class="table-block" id="order-detail-content">
+                            <a  onclick="check()" class="btn btn-success btn-lg btn-block " title="checkout" style="margin-bottom:20px" > Passer à la caisse &nbsp;
+                                <i class="fa fa-arrow-right"></i> </a>
+
+                            <div class="w100 cartMiniTable">
+                                <table id="cart-summary" class="std table">
+                                    <tbody>
+                                    <tr>
+                                        <td>prix totaux</td>
+                                        <td class="price">{{ prixTT |number_format(3)}} Dt</td>
+                                    </tr>
+                                    <tr style="">
+                                        <td>Livraison</td>
+                                        {% if nngrat >= 1 %}
+                                            <td class="price"><span style="color: red"> non gratuite</span></td>
+
+
+
+                                        {% else %}
+                                            <td class="price"><span class="success">gratuite!</span></td>
+
+                                        {% endif %}
+
+                                    </tr>
+                                    <tr class="cart-total-price ">
+                                        <td>Total (HT)</td>
+                                        <td class="price">{{ prixTT |number_format(3)}} Dt</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TVA (%)</td>
+                                        <td class="price" id="total-tax"> 5,5 %</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Total</td>
+                                        <td class=" site-color" id="total-price">{{ (prixTT *  1.055) |number_format(3)}} Dt</td>
+                                    </tr>
+
+                                    </tbody>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End popular -->
+
+            </div>
+            <!--/rightSidebar-->
+
+        </div>
+        <!--/row-->
+
+        <div style="clear:both"></div>
+
+    </div>
+
+    <script src="{{ asset('sweetalert.min.js') }}"></script>
+    <script language="JavaScript" type="text/javascript">
+        function check() {
+            swal({
+                title: "Etes vous sur?",
+                text: "Etes vous sur de passr la commande avec cette panier !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Succès ! Votre commande a été bien passée !", {
+                            icon: "success",
+                        }).then(function() {
+                            window.location.href = "{{ path('commander',{'nomB':username,'cltname':client.username}) }}";
+
+                        });
+
+                    }
+                });
+
+        }
+
+    </script>
+
+
+
+
+{% endblock %}

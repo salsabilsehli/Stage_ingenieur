@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Liste des produits</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+
+                            <tr>
+                                <th> couleurs</th>
+                            </tr>
+
+                            </thead>
+                            <tbody>
+
+                                    {% for c in couleurs %}
+                                    {% for cc in c.couleurs %}
+<tr>
+                                    <td scope="row" ><FONT COLOR="{{ cc }}" >{{ cc }}</FONT></td>
+                                    {% endfor %}
+                                    {% endfor %}
+
+
+</tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

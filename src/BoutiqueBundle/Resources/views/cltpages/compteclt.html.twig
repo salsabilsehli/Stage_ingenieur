@@ -1,0 +1,89 @@
+{% extends 'compte_clt.html.twig' %}
+
+{%  block dynamique %}
+    <div class="container main-container headerOffset">
+        <div class="row">
+            <div class="breadcrumbDiv col-lg-12">
+                <ul class="breadcrumb">
+                    <!-- route actuelle -->
+                    <li><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}"> Accueil </a></li>
+
+                    <li class="active"> Mon Compte</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-9 col-md-9 col-sm-7">
+                <h1 class="section-title-inner"><span><i class="fa fa-unlock-alt"></i> Mon Compte </span></h1>
+
+                <div class="row userInfo">
+                    <div class="col-xs-12 col-sm-12">
+                        <p style="color: limegreen;font-size: larger"> Votre compte a été créé. </p>
+
+
+                        <div class="container" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                                background-color: #f8f8f8;
+                                width: 600px;
+                                height: 330px;
+                                margin: auto;
+                                text-align: center;
+                                font-family: Lucida Sans Unicode">
+
+                            <img src="{{ asset('/images/' ~ client.logo) }}"  class="img-circle img-fluid">
+                            <h1> {{ client.nomDeFamille }}</h1>
+
+                            <p class="title" style="color: black;font-family: Lucida Sans Unicode">IDENTIFIANT : {{ client.username }}</p>
+                            <p class="title" style="color: black;font-family: Lucida Sans Unicode">Date de naissance : {{ client.dateNaissance }}</p>
+                            <p class="title" style="color: black;font-family: Lucida Sans Unicode">Numéro de téléphone : {{ client.num }}</p>
+                            <p class="title" style="color: black;font-family: Lucida Sans Unicode">E-mail : {{ client.email }}</p>
+                            <p class="title" style="color: black;font-family: Lucida Sans Unicode">Adresse : {{ client.Adresse }}</p>
+                        </div>
+
+                        <br>
+                        <h2 class="block-title-2"><span>BIENVENUE à votre compte. Ici vous pouvez gérer l'ensemble de vos informations et commandes personnelles .</span>
+                        </h2>
+                        <ul class="myAccountList row" >
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                                <div class=" equalheight"></div>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                                <div class=" equalheight"></div>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                                <div class="thumbnail equalheight"><a title="Orders" href="{{ path('histo_commandes',{'nomB':username,'cltname':client.username}) }}"><i
+                                                class="fa fa-calendar"></i> Historique </a></div>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                                <div class="thumbnail equalheight">
+
+                                    {% if client.num == NULL %}
+
+                                    <a title="Personal information"
+                                                                      href="{{ path('ajout_info_clt',{'nomB':username,'cltname':client.username}) }}"><i class="fa fa-cog"></i>
+                                        Informations personnelles</a>
+                                {% else %}
+                                <a title="Personal information"
+                                   href="{{ path('edit_info_clt',{'nomB':username,'cltname':client.username}) }}"><i class="fa fa-cog"></i>
+                                    Informations personnelles</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            <li class="col-lg-2 col-md-2 col-sm-3 col-xs-4  text-center ">
+                                <div class="thumbnail equalheight"><a title="My wishlists" href="{{ path('mes_souhaits',{'nomB':username,'cltname':client.username}) }}"><i
+                                                class="fa fa-heart"></i> Mes souhaits </a></div>
+                            </li>
+                        </ul>
+                        <div class="clear clearfix"></div>
+                    </div>
+                </div>
+                <!--/row end-->
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-5"></div>
+        </div>
+        <!--/row-->
+
+        <div style="clear:both"></div>
+    </div>
+{% endblock %}

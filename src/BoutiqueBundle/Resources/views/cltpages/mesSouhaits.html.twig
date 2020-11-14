@@ -1,0 +1,100 @@
+{% extends 'compte_clt.html.twig' %}
+
+{%  block dynamique %}
+<div class="container main-container headerOffset">
+    <div class="row">
+        <div class="breadcrumbDiv col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}"> Accueil </a></li>
+                <li><a href="{{ path('compte_clt',{'nomB':username,'cltname':client.username}) }}">Mon Compte</a></li>
+                <li class="active"> Mes souhaits</li>
+            </ul>
+        </div>
+    </div>
+    <!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-7">
+            <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-heart" style="color: red"></i> Mes Souhaits </span></h1>
+
+            <div class="row userInfo">
+                <div class="col-lg-12">
+                    <h2 class="block-title-2"> Mettre à jour votre liste si elle a changé . </h2>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <table>
+                        <tbody>
+{% for w in produits %}
+
+                        <tr class="CartProduct">
+                            <td style="width:10%" class="CartProductThumb">
+                                <div><a href="product-details.html"><img src="{{ asset('/images/' ~ w.produit.image) }}" alt="img"></a></div>
+                            </td>
+
+                            <td style="width:40%">
+                                <div class="CartDescription">
+                                    <h4><a href="product-details.html"> {{ w.produit.nomProd }} </a></h4>
+
+                                        {% if w.produit.QteStock > 0 %}
+                                            <div style="width:60px;
+                                            height:20px;
+                                                background:limegreen;
+                                                 border-radius: 10px;
+                                                text-align: center" >
+                                    <span style="color: white" class="size">
+                                        En stock
+                                        </span>
+                                            </div>
+                                        {% else %}
+                                            <div style="width:90px;
+                                            height:20px;
+                                                background:red;
+                                                 border-radius: 10px;
+                                                text-align: center">
+                                    <span style="color: white" class="size">
+                                         Stock épuisé
+                                        </span>
+                                            </div>
+                                            {% endif %}
+
+
+                                    <div class="price"><span>{{ w.produit.prix }} Dt</span></div>
+                                </div>
+                            </td>
+                            <td style="width:15%">
+                                <a class="btn btn-primary" href="{{ path('product_details',{'nomB':username,'cltname':client.username,'id':w.produit.id}) }}">
+                                    <span class="add2cart"><i class="glyphicon glyphicon-shopping-cart"> </i> Voir détails  </span>
+                                </a>
+                            </td>
+                            <td style="width:40%" class="delete"><a title="Delete" href="{{ path('delete_from_wishlist',{'nomB':username,'cltname':client.username,'id':w.id}) }}"> <i
+                                            class="glyphicon glyphicon-trash fa-2x"></i> </a></td>
+                        </tr>
+
+{% endfor %}
+                        </tbody>
+                        <div class="text-center" style="font-size: 25px">{{ knp_pagination_render(produits) }}</div>
+
+                    </table>
+
+                </div>
+
+
+
+                <div class="col-lg-12 clearfix">
+                    <ul class="pager">
+                        <li class="previous pull-right"><a href="{{ path('cltloggedin_index',{'nomB':username,'cltname':client.username}) }}"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="next pull-left"><a href="{{ path('compte_clt',{'nomB':username,'cltname':client.username}) }}"> &larr;</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--/row end-->
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-5"></div>
+    </div>
+    <!--/.row-->
+    <div style="clear:both"></div>
+</div>
+{% endblock %}

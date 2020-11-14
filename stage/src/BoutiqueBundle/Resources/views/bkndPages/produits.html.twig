@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block active %}
+    <li class=" nav-item"><a href="{{path('backend_index',{'username':username})}}"><i class="ft-home"></i><span class="menu-title" data-i18n="">Acceuil</span></a>
+    </li>
+    <li class="nav-item" ><a href="{{ path('bk_categories',{'username':username}) }}"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Catégories</span></a>
+    </li>
+    <li class="active"><a href="{{ path('bk_produits',{'username':username}) }}"><i class="ft-box"></i><span class="menu-title" data-i18n="">Produits</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_marques',{'username':username}) }}"><i class="la la-tags"></i><span class="menu-title" data-i18n="">Marques</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_clients',{'username':username}) }}"><i class="la la-female"></i><span class="menu-title" data-i18n="">Clients</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_commandes',{'username':username}) }}"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Commandes</span></a>
+    </li>
+{% endblock %}
+{% block dynamique %}
+    <!-- Ajouter categorie -->
+    <section id="block-level-buttons">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ajouter un produit</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <!-- Block level buttons -->
+                            <div class="form-group">
+                                <a href="{{ path('produit_ajout',{'username':username}) }}" type="button" class="btn mb-1 btn-primary btn-lg btn-block">Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tableau categories -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Liste des produits</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nom Produit</th>
+                                    <th>Description</th>
+                                    <th>Prix</th>
+                                    <th>Nom catégorie</th>
+                                    <th>Nom marque</th>
+                                    <th>Quantité en stock</th>
+                                    <th>Supprimer</th>
+                                    <th>Modifier</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for p in produit %}
+                                    <tr>
+                                        <th><img src="{{ asset('/images/' ~ p.image) }}" height="40px" width="40px"/></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.nomProd }}</FONT></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.description }}</FONT></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.prix }}</FONT></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.categorie.nomCategorie }}</FONT></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.marque.nomMarque }}</FONT></th>
+                                        <th scope="row" ><FONT COLOR="black" >{{ p.QteStock }}</FONT></th>
+                                        <td><a type="button" class="btn btn-danger " style="width: 75px;height: 55px" href="{{ path('produit_delete',{'nomProd':p.nomProd,'username':username}) }}"><img src="{{ asset('/images2/icons/delete.png') }}"></a></td>
+                                        <td><a type="button" class="btn btn-success " style="width: 75px;height: 55px" href="{{ path('produit_edit',{'nomProd':p.nomProd,'username':username}) }}"><img src="{{ asset('/images2/icons/edit.png') }}"></a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

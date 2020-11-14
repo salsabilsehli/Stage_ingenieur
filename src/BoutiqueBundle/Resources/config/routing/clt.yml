@@ -1,0 +1,84 @@
+cltloggedin_index:
+  path:     /
+  defaults: { _controller: BoutiqueBundle:Client:frontloggedin }
+  methods:  [GET, POST]
+
+ajout_info_clt:
+  path:     /mon_compte/ajouter
+  defaults: { _controller: BoutiqueBundle:Client:ajoutinfoclt }
+  methods:  [GET, POST]
+
+edit_info_clt:
+  path:     /mon_compte/modifier
+  defaults: { _controller: BoutiqueBundle:Client:editinfoclt }
+  methods:  [GET, POST]
+
+mes_souhaits:
+  path:     /mes_souhaits
+  defaults: { _controller: BoutiqueBundle:Client:mesSouhaits }
+  methods:  [GET, POST]
+
+ajout_souhaits:
+  path:     /ajout_souhait/{id}
+  defaults: { _controller: BoutiqueBundle:Client:ajoutSouhaits }
+  methods:  [GET, POST]
+
+delete_from_wishlist:
+  path:     /supprimer_souhait/{id}
+  defaults: { _controller: BoutiqueBundle:Client:deleteSouhaits }
+  methods:  [GET, POST]
+
+product_details:
+  path:     /produit_details/{id}
+  defaults: { _controller: BoutiqueBundle:Client:detailsproduit }
+  methods:  [GET, POST]
+
+add_to_card:
+  path:     /ajoutPanier/{id}
+  defaults: { _controller: BoutiqueBundle:Client:addtopanier }
+  methods:  [GET, POST]
+
+show_card:
+  path:     /Panier
+  defaults: { _controller: BoutiqueBundle:Client:showpanier }
+  methods:  [GET, POST]
+
+delete_from_cart:
+  path:     /supprimerdePanier/{id}
+  defaults: { _controller: BoutiqueBundle:Client:deletefrompanier }
+  methods:  [GET, POST]
+
+maj_panier:
+  path:     /maj
+  defaults: { _controller: BoutiqueBundle:Client:majpanier }
+  methods:  [GET, POST]
+
+commander:
+  path:     /commande
+  defaults: { _controller: BoutiqueBundle:Client:commande }
+  methods:  [GET, POST]
+
+histo_commandes:
+  path:     /historique_commandes
+  defaults: { _controller: BoutiqueBundle:Client:Histocommande }
+  methods:  [GET, POST]
+
+details_commande:
+  path:     /detail_commande/{id}
+  defaults: { _controller: BoutiqueBundle:Client:detailcommande }
+  methods:  [GET, POST]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

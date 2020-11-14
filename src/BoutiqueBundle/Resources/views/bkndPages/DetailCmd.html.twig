@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+{% block active %}
+    <li class=" nav-item"><a href="{{path('backend_index',{'username':username})}}"><i class="ft-home"></i><span class="menu-title" data-i18n="">Acceuil</span></a>
+    </li>
+    <li class=" nav-item" ><a href="{{ path('bk_categories',{'username':username}) }}"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Catégories</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_produits',{'username':username}) }}"><i class="ft-box"></i><span class="menu-title" data-i18n="">Produits</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_marques',{'username':username}) }}"><i class="la la-tags"></i><span class="menu-title" data-i18n="">Marques</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_clients',{'username':username}) }}"><i class="la la-female"></i><span class="menu-title" data-i18n="">Clients</span></a>
+    </li>
+    <li class="active"><a href="{{ path('bk_commandes',{'username':username}) }}"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Commandes</span></a>
+    </li>
+{% endblock %}
+{% block dynamique %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title" >Détails commande<span style="color: blue"> #CMD_{{ commande.id }}</span> </h4><br>
+                {% if commande.valide == 1 %}
+                <span class="badge badge-pill badge-success">validée</span><br><br>
+                {% else %}
+                <span class="badge badge-pill badge-danger">non validée</span><br><br>
+                    <a href="{{ path('valider_cmd',{'username':username,'id':commande.id,'cltid':cltid}) }}" type="button" class="btn mb-1 btn-success btn">Valider</a><br><br>
+
+                {% endif %}
+
+                <h4 class="card-title" >TOTAL : {{ (commande.prix) |number_format(3)}} Dt </h4><br>
+                <h4 class="card-title" >Date : {{ commande.Date|date("d/m/Y") }} </h4><br>
+{% if commande.livgrat == 0 %}
+                <h4 class="card-title" >Livraison : Non gratuite </h4><br>
+{% else %}
+                <h4 class="card-title" >Livraison : Gratuite </h4><br>
+{% endif %}
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a href="{{ path('cmds_client',{'username':username,'id':cltid}) }}"><i class="la la-mail-reply"></i></a></li>
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Nom Produit</th>
+                                <th>Couleur</th>
+                                <th>Taille</th>
+                                <th>Quantité </th>
+                                <th>Prix </th>
+                                <th>Remise </th>
+                                <th>Total </th>
+
+
+                            </tr>
+
+                            </thead>
+                            <tbody>
+                            {% for pc in pcs %}
+                                <tr>
+                                    <th><img src="{{ asset('/images/' ~ pc.produit.image) }}" height="40px" width="40px"/></th>
+                                    <th scope="row" ><FONT COLOR="black" >{{ pc.produit.nomProd }}</FONT></th>
+                                    <th scope="row" ><FONT COLOR="black" >
+                                            {% if pc.couleur == '#0000FF' %}
+                                                BLEU
+                                            {% elseif pc.couleur  == '#000000' %}
+                                                NOIR
+                                            {% elseif pc.couleur  == '#FFFFFF' %}
+                                                BLANC
+                                            {% elseif pc.couleur  == '#FF0000' %}
+                                                ROUGE
+                                            {% elseif pc.couleur  == '#008000' %}
+                                                VERT
+                                            {% elseif pc.couleur  == '#FFFF00' %}
+                                                JAUNE
+                                            {% endif %}
+
+
+                                         </FONT></th>
+                                    <th scope="row" ><FONT COLOR="black" >{{ pc.taille }}</FONT></th>
+                                    <th scope="row" ><FONT COLOR="black" >{{ pc.quantite }}</FONT></th>
+                                    <th scope="row" ><FONT COLOR="black" >{{ pc.produit.prix}} Dt</FONT></th>
+                                    <th scope="row" ><FONT COLOR="black" >{{ pc.produit.remise}}</FONT></th>
+                                    {% if pc.produit.Remise!=0 %}
+                                    <th scope="row" ><FONT COLOR="black" >{{ (pc.quantite * pc.produit.prix *(100 - pc.produit.remise ) / 100) |number_format(3)}} Dt</FONT></th>
+                                    {% else %}
+                                        <th scope="row" ><FONT COLOR="black" >{{ (pc.quantite * pc.produit.prix) |number_format(3)}} Dt</FONT></th>
+                                        {% endif %}
+                                        </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

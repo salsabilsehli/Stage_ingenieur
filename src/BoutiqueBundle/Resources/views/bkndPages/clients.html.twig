@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block active %}
+    <li class=" nav-item"><a href="{{path('backend_index',{'username':username})}}"><i class="ft-home"></i><span class="menu-title" data-i18n="">Acceuil</span></a>
+    </li>
+    <li class=" nav-item" ><a href="{{ path('bk_categories',{'username':username}) }}"><i class="ft-layers"></i><span class="menu-title" data-i18n="">Catégories</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_produits',{'username':username}) }}"><i class="ft-box"></i><span class="menu-title" data-i18n="">Produits</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_marques',{'username':username}) }}"><i class="la la-tags"></i><span class="menu-title" data-i18n="">Marques</span></a>
+    </li>
+    <li class="active"><a href="{{ path('bk_clients',{'username':username}) }}"><i class="la la-female"></i><span class="menu-title" data-i18n="">Clients</span></a>
+    </li>
+    <li class=" nav-item"><a href="{{ path('bk_commandes',{'username':username}) }}"><i class="la la-cart-arrow-down"></i><span class="menu-title" data-i18n="">Commandes</span></a>
+    </li>
+{% endblock %}
+{% block dynamique %}
+    <div class="row" style="margin-top: 20px">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Liste des clients</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+    {% if clts!=NULL %}
+
+        <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+
+                                <tr>
+                                    <th>#</th>
+                                    <th><FONT COLOR="black" >Identifiant</FONT></th>
+                                    <th><FONT COLOR="black" >Nom client</FONT></th>
+                                    <th><FONT COLOR="black" >E-mail</FONT></th>
+                                    <th><FONT COLOR="black" >Dernier login</FONT></th>
+                                    <th><FONT COLOR="black" >Date de naissance</FONT></th>
+                                    <th><FONT COLOR="black" >Numéro de téléphone</FONT></th>
+                                    <th><FONT COLOR="black" >Adresse</FONT></th>
+
+                                </tr>
+
+                                </thead>
+                                <tbody>
+                                {% for c in clts %}
+                                    <tr>
+                                        <th><a href="{{ path('cmds_client',{'username':username,'id':c.client.id}) }}" ><img class="rounded-circle" src="{{ asset('/images/' ~ c.client.logo) }}" height="40px" width="40px"/></a></th>
+                                        <th scope="row" >{{ c.client.username }}</th>
+                                        <th scope="row" >{{ c.client.nomDeFamille }}</th>
+                                        <th scope="row" >{{ c.client.email }}</th>
+                                        <th scope="row" >{{ c.client.lastLogin|date("d/m/Y")}}</th>
+                                        <th scope="row" >{{ c.client.dateNaissance }}</th>
+                                        <th scope="row" >{{ c.client.num }}</th>
+                                        <th scope="row" >{{ c.client.Adresse }}</th>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

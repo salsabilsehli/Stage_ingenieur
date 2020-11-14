@@ -1,0 +1,11 @@
+frontend_index:
+  path:     /
+  defaults: { _controller: BoutiqueBundle:Default:frontBoutique }
+  methods:  [GET, POST]
+
+filtre:
+  path:     /filtre
+  defaults: { _controller: BoutiqueBundle:Default:frontBoutiquefiltre }
+  methods:  [GET, POST]
+
+

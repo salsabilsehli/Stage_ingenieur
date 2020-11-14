@@ -1,0 +1,48 @@
+boutique_homepage:
+    path:     /index
+    defaults: { _controller: BoutiqueBundle:Default:index }
+
+demande:
+    path:     /demande
+    defaults: { _controller: FOSUserBundle:Registration:register }
+    methods:  [GET, POST]
+
+registerclt:
+    path:     /{username}.com/registerclt
+    defaults: { _controller: FOSUserBundle:Registration:register }
+    methods:  [GET, POST]
+
+loginclt:
+    path:      /{username}.com/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+login:
+    path:      /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+logout:
+    path:  /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+login_check:
+    path:  /login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+
+backend:
+    resource: "@BoutiqueBundle/Resources/config/routing/backend.yml"
+    prefix:   /{username}.com/admin
+
+cltloggedin:
+    path:     /{nomB}/{cltname}.com
+    defaults: { _controller: BoutiqueBundle:Default:frontloggedin }
+    methods:  [GET, POST]
+
+frontend_index:
+    path:     /{username}.com/
+    defaults: { _controller: BoutiqueBundle:Default:frontBoutique }
+    methods:  [GET, POST]
+
+
+
+
